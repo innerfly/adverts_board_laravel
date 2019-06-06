@@ -30,3 +30,8 @@ Breadcrumbs::for('cabinet', function (Crumbs $crumbs) {
     $crumbs->parent('home');
     $crumbs->push('Cabinet', route('cabinet'));
 });
+
+Breadcrumbs::for('admin.home', function (Crumbs $crumbs) {
+    $crumbs->parent('home');
+    $crumbs->push('Admin', route('admin.home'));
+});
