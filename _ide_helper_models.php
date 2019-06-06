@@ -10,14 +10,14 @@
  */
 
 
-namespace App{
+namespace App\Entity{
 /**
- * App\User
+ * App\Entity\User
  *
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
- * @method static \Illuminate\Database\Eloquent\Builder|\App\User newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\User newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\User query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Entity\User newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Entity\User newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Entity\User query()
  */
 	class User extends \Eloquent {}
 }
