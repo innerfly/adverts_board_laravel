@@ -14,6 +14,12 @@ namespace App\Entity{
 /**
  * App\Entity\User
  *
+ * @property int $id
+ * @property string $name
+ * @property string $email
+ * @property string $password
+ * @property string $verify_token
+ * @property string $status
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Entity\User newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Entity\User newQuery()
