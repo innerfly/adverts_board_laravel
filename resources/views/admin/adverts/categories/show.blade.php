@@ -15,21 +15,26 @@
     <table class="table table-bordered table-striped">
         <tbody>
         <tr>
-            <th>ID</th><td>{{ $category->id }}</td>
+            <th>ID</th>
+            <td>{{ $category->id }}</td>
         </tr>
         <tr>
-            <th>Name</th><td>{{ $category->name }}</td>
+            <th>Name</th>
+            <td>{{ $category->name }}</td>
         </tr>
         <tr>
-            <th>Slug</th><td>{{ $category->slug }}</td>
+            <th>Slug</th>
+            <td>{{ $category->slug }}</td>
         </tr>
         <tbody>
         </tbody>
     </table>
 
-    <p><a href="{{ route('admin.adverts.categories.attributes.create', $category) }}" class="btn btn-success">Add Attribute</a></p>
+    <p>
+        <a href="{{ route('admin.adverts.categories.attributes.create', $category) }}" class="btn btn-success">Add Attribute</a>
+    </p>
 
-    <table class="table table-bordered table-striped">
+    <table class="table table-bordered">
         <thead>
         <tr>
             <th>Sort</th>
@@ -40,7 +45,28 @@
         </thead>
         <tbody>
 
-        @foreach ($attributes as $attribute)
+        <tr>
+            <th colspan="4">Parent attributes</th>
+        </tr>
+
+        @forelse ($parentAttributes as $attribute)
+            <tr>
+                <td>{{ $attribute->sort }}</td>
+                <td>{{ $attribute->name }}</td>
+                <td>{{ $attribute->type }}</td>
+                <td>{{ $attribute->required ? 'Yes' : '' }}</td>
+            </tr>
+        @empty
+            <tr>
+                <td colspan="4">None</td>
+            </tr>
+        @endforelse
+
+        <tr>
+            <th colspan="4">Own attributes</th>
+        </tr>
+
+        @forelse ($attributes as $attribute)
             <tr>
                 <td>{{ $attribute->sort }}</td>
                 <td>
@@ -49,7 +75,11 @@
                 <td>{{ $attribute->type }}</td>
                 <td>{{ $attribute->required ? 'Yes' : '' }}</td>
             </tr>
-        @endforeach
+        @empty
+            <tr>
+                <td colspan="4">None</td>
+            </tr>
+        @endforelse
 
         </tbody>
     </table>
