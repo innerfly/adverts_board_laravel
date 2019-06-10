@@ -1,6 +1,7 @@
 <?php
 
 use App\Entity\Region;
+use App\Entity\Adverts\Category;
 use DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator as Crumbs;
 use App\Entity\User;
 
@@ -105,7 +106,7 @@ Breadcrumbs::register('admin.adverts.categories.show', function (Crumbs $crumbs,
     $crumbs->push($category->name, route('admin.adverts.categories.show', $category));
 });
 
-Breadcrumbs::register('admin.adverts.categories.edit', function (Crumbs $crumbs, Region $region) {
-    $crumbs->parent('admin.adverts.categories.show', $region);
-    $crumbs->push('Edit', route('admin.adverts.categories.edit', $region));
+Breadcrumbs::register('admin.adverts.categories.edit', function (Crumbs $crumbs, Category $category) {
+    $crumbs->parent('admin.adverts.categories.show', $category);
+    $crumbs->push('Edit', route('admin.adverts.categories.edit', $category));
 });
