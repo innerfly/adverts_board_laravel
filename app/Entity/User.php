@@ -14,6 +14,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property string $email
  * @property string $phone
  * @property bool $phone_verified
+ * @property boolean $phone_auth
  * @property string $password
  * @property string $verify_token
  * @property string $phone_verify_token
@@ -44,6 +45,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'phone_verified' => 'boolean',
         'phone_verify_token_expire' => 'datetime',
+        'phone_auth' => 'boolean',
     ];
 
     public static function register(string $name, string $email, string $password): self
@@ -107,6 +109,7 @@ class User extends Authenticatable
         $this->phone_verified = false;
         $this->phone_verify_token = null;
         $this->phone_verify_token_expire = null;
+        $this->phone_auth = false;
         $this->saveOrFail();
     }
 
@@ -143,6 +146,26 @@ class User extends Authenticatable
     public function isPhoneVerified(): bool
     {
         return $this->phone_verified;
+    }
+
+    public function enablePhoneAuth(): void
+    {
+        if (!empty($this->phone) && !$this->isPhoneVerified()) {
+            throw new \DomainException('Phone number is empty.');
+        }
+        $this->phone_auth = true;
+        $this->saveOrFail();
+    }
+
+    public function disablePhoneAuth(): void
+    {
+        $this->phone_auth = false;
+        $this->saveOrFail();
+    }
+
+    public function isPhoneAuthEnabled(): bool
+    {
+        return (bool)$this->phone_auth;
     }
 
     public function isAdmin(): bool
