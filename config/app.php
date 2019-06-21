@@ -178,6 +178,7 @@ return [
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         App\Providers\SmsServiceProvider::class,
+        App\Providers\CacheServiceProvider::class,
     ],
 
     /*
