@@ -35,6 +35,8 @@ namespace App\Entity\Adverts\Advert{
  * @property Photo[] $photos
  * @method Builder active()
  * @method Builder forUser(User $user)
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entity\User[] $favorites
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Entity\Adverts\Advert\Advert favoredByUser(\App\Entity\User $user)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Entity\Adverts\Advert\Advert forCategory(\App\Entity\Adverts\Category $category)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Entity\Adverts\Advert\Advert forRegion(\App\Entity\Region $region)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Entity\Adverts\Advert\Advert newModelQuery()
@@ -109,6 +111,36 @@ namespace App\Entity\Adverts{
 	class Category extends \Eloquent {}
 }
 
+namespace App\Entity\Banner{
+/**
+ * App\Entity\Banner\Banner
+ *
+ * @property int $id
+ * @property int $user_id
+ * @property int $category_id
+ * @property int $region_id
+ * @property string $name
+ * @property int $views
+ * @property int $limit
+ * @property int $clicks
+ * @property int $cost
+ * @property string $url
+ * @property string $format
+ * @property string $file
+ * @property string $status
+ * @property Carbon $published_at
+ * @property Region|null $region
+ * @property Category $category
+ * @method Builder active()
+ * @method Builder forUser(User $user)
+ * @property-read \App\Entity\User $user
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Entity\Banner\Banner newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Entity\Banner\Banner newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Entity\Banner\Banner query()
+ */
+	class Banner extends \Eloquent {}
+}
+
 namespace App\Entity{
 /**
  * App\Entity\Region
@@ -119,6 +151,7 @@ namespace App\Entity{
  * @property int|null $parent_id
  * @property Region $parent
  * @property Region[] $children
+ * @method Builder roots()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Entity\Region newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Entity\Region newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Entity\Region query()
@@ -143,6 +176,7 @@ namespace App\Entity{
  * @property Carbon $phone_verify_token_expire
  * @property string $role
  * @property string $status
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entity\Adverts\Advert\Advert[] $favorites
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Entity\User newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Entity\User newQuery()

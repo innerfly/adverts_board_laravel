@@ -2,7 +2,6 @@
 
 namespace App\Console;
 
-use App\Console\Commands\User\ExpireCommand;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -14,7 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        ExpireCommand::class,
+        //
     ];
 
     /**
@@ -25,6 +24,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
+        $schedule->command('banner:expire')->daily();
         $schedule->command('advert:expire')->hourly();
     }
 
