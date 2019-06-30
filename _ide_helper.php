@@ -1808,7 +1808,7 @@ namespace Illuminate\Support\Facades {
         /**
          * Get the currently authenticated user.
          *
-         * @return \App\Entity\User|null 
+         * @return \App\Entity\User\User|null
          * @static 
          */ 
         public static function user()
@@ -1846,7 +1846,8 @@ namespace Illuminate\Support\Facades {
          * Log the given user ID into the application without sessions or cookies.
          *
          * @param mixed $id
-         * @return \App\Entity\User|false 
+         *
+         * @return \App\Entity\User\User|false
          * @static 
          */ 
         public static function onceUsingId($id)
@@ -1915,7 +1916,7 @@ namespace Illuminate\Support\Facades {
          *
          * @param mixed $id
          * @param bool $remember
-         * @return \App\Entity\User|false 
+         * @return \App\Entity\User\User|false
          * @static 
          */ 
         public static function loginUsingId($id, $remember = false)
@@ -1982,7 +1983,7 @@ namespace Illuminate\Support\Facades {
         /**
          * Get the last user we attempted to authenticate.
          *
-         * @return \App\Entity\User 
+         * @return \App\Entity\User\User
          * @static 
          */ 
         public static function getLastAttempted()
@@ -2093,7 +2094,7 @@ namespace Illuminate\Support\Facades {
         /**
          * Return the currently cached user.
          *
-         * @return \App\Entity\User|null 
+         * @return \App\Entity\User\User|null
          * @static 
          */ 
         public static function getUser()
@@ -2143,7 +2144,7 @@ namespace Illuminate\Support\Facades {
         /**
          * Determine if current user is authenticated. If not, throw an exception.
          *
-         * @return \App\Entity\User 
+         * @return \App\Entity\User\User
          * @throws \Illuminate\Auth\AuthenticationException
          * @static 
          */ 

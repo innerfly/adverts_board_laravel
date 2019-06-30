@@ -35,8 +35,8 @@ namespace App\Entity\Adverts\Advert{
  * @property Photo[] $photos
  * @method Builder active()
  * @method Builder forUser(User $user)
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entity\User[] $favorites
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Entity\Adverts\Advert\Advert favoredByUser(\App\Entity\User $user)
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entity\User\User[] $favorites
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Entity\Adverts\Advert\Advert favoredByUser(\App\Entity\User\User $user)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Entity\Adverts\Advert\Advert forCategory(\App\Entity\Adverts\Category $category)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Entity\Adverts\Advert\Advert forRegion(\App\Entity\Region $region)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Entity\Adverts\Advert\Advert newModelQuery()
@@ -133,7 +133,7 @@ namespace App\Entity\Banner{
  * @property Category $category
  * @method Builder active()
  * @method Builder forUser(User $user)
- * @property-read \App\Entity\User $user
+ * @property-read \App\Entity\User\User $user
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Entity\Banner\Banner newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Entity\Banner\Banner newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Entity\Banner\Banner query()
@@ -178,9 +178,9 @@ namespace App\Entity{
  * @property string $status
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entity\Adverts\Advert\Advert[] $favorites
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Entity\User newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Entity\User newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Entity\User query()
+ * @method static \Illuminate\Database\Eloquent\Builder|User\User newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|User\User newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|User\User query()
  */
 	class User extends \Eloquent {}
 }
